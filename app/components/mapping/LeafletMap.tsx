@@ -33,9 +33,6 @@ const LeafletMap: React.FC = () => {
     return (
         <MapContainer center={[0, 0]} zoom={3} className="leafletMap">
             <TileLayer url={`map/tiles/{z}/{x}/{y}.png`} noWrap={true} />
-            <Marker position={[0, -0]} icon={customIcon}>
-                <Popup>Dummy Popup</Popup>
-            </Marker>
         </MapContainer>
     );
 };
