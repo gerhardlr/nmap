@@ -7,8 +7,8 @@ import "leaflet/dist/leaflet.css";
 // Dynamically import react-leaflet (only loads on the client)
 const MapContainer = dynamic(() => import("react-leaflet").then((m) => m.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import("react-leaflet").then((m) => m.TileLayer), { ssr: false });
-const Marker = dynamic(() => import("react-leaflet").then((m) => m.Marker), { ssr: false });
-const Popup = dynamic(() => import("react-leaflet").then((m) => m.Popup), { ssr: false });
+//const Marker = dynamic(() => import("react-leaflet").then((m) => m.Marker), { ssr: false });
+//const Popup = dynamic(() => import("react-leaflet").then((m) => m.Popup), { ssr: false });
 
 
 import L from "leaflet";
