@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Smartphones (up to 600px) */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .leafletMap {
+    flex: 1;
+    border: 0;
+  }
+}
+
+/* Tablets (601px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  .leafletMap {
+    flex: 1;
+    border: 0;
+  }
+}
+
+/* Desktops (1025px and above) */
+@media (min-width: 1025px) {
+  body {
+    font-size: 18px;
+  }
+
+  .leafletMap {
+    flex: 1;
+    border: 0;
+  }
+}
