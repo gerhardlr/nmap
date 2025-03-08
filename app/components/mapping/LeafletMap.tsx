@@ -12,7 +12,6 @@ const Popup = dynamic(() => import("react-leaflet").then((m) => m.Popup), { ssr:
 
 
 import L from "leaflet";
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
 
 // Manually reference marker icons
 const customIcon = new L.Icon({
@@ -24,44 +23,20 @@ const customIcon = new L.Icon({
 
 const LeafletMap: React.FC = () => {
     const [mounted, setMounted] = useState(false);
-    const [value, setValue] = useState('');
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue((event.target as HTMLInputElement).value);
-    };
 
     useEffect(() => {
         setMounted(true); // Ensures Leaflet only loads after hydration
     }, []);
 
-
-
-
     if (!mounted) return <></>; // Prevents hydration mismatch
 
     return (
-        <>
-            <FormControl>
-                <FormLabel id="demo-row-radio-buttons-group-label">Map Type</FormLabel>
-                <RadioGroup
-                    row
-                    aria-labelledby="demo-row-radio-buttons-group-label"
-                    name="row-radio-buttons-group"
-                    value={value}
-                    onChange={handleChange}
-                >
-                    <FormControlLabel value="" control={<Radio />} label="OpenStreet" />
-                    <FormControlLabel value="2" control={<Radio />} label="Pioneer" />
-                    <FormControlLabel value="3" control={<Radio />} label="WaterColour" />
-                </RadioGroup>
-            </FormControl>
-            <MapContainer center={[0, 0]} zoom={3} className="leafletMap">
-                <TileLayer url={`map/tiles${value}/{z}/{x}/{y}.png`} noWrap={true} />
-                <Marker position={[0, -0]} icon={customIcon}>
-                    <Popup>Dummy Popup</Popup>
-                </Marker>
-            </MapContainer>
-        </>
+        <MapContainer center={[0, 0]} zoom={3} className="leafletMap">
+            <TileLayer url={`map/tiles/{z}/{x}/{y}.png`} noWrap={true} />
+            <Marker position={[0, -0]} icon={customIcon}>
+                <Popup>Dummy Popup</Popup>
+            </Marker>
+        </MapContainer>
     );
 };
 
