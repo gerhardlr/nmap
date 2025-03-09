@@ -31,10 +31,10 @@ const LeafletMap: React.FC = () => {
     if (!mounted) return <></>; // Prevents hydration mismatch
 
     return (
-        <MapContainer center={[0, 0]} zoom={3} className="leafletMap">
+        <MapContainer center={[70, -60]} zoom={2} className="leafletMap">
             <TileLayer url={`map/tiles/{z}/{x}/{y}.png`} noWrap={true} />
-            <Marker position={[0, -0]} icon={customIcon}>
-                <Popup>Dummy Popup</Popup>
+            <Marker position={[30, 0]} icon={customIcon}>
+                <Popup>My House</Popup>
             </Marker>
         </MapContainer>
     );
